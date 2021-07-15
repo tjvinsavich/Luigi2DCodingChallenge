@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace LuigiChallenge
 {
     public class Luigi
@@ -31,7 +33,38 @@ namespace LuigiChallenge
 
         public string GoHome2D(int[][] map)
         {
-            throw new NotImplementedException();
+           string directions = "";
+
+           for (int i = 0; i < map.Length ; i++)
+            {
+                for (int j = 0; j < map[i].Length; j++)
+                {
+                    if (map[i][j] == 0 && j < map[i].Length - 1 && i < map.Length)
+                    {
+                        if(map[i][j + 1] == 0)
+                        {
+                            directions += ("Right ");
+                        }
+                        else if(map[i][j + 1] != 0)
+                        {
+                            directions += ("Down ");
+                        }
+                    }
+                }
+            }
+
+            return directions.Remove(directions.Length - 1);
+
+
+
+            //find start point
+            //compare to right index (array 1)
+            //compare to below index (array 2)
+
+            //if right 0, RIGHT, if !0, DOWN
+
+            //when we go right, stay in current array
+            //when we go down, move to next array2 in array1
         }
     }
 }
